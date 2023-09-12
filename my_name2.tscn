@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3 uid="uid://3vb786feat4d"]
+
+[ext_resource type="Script" path="res://my_name.gd" id="1_f2jyw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_37wuf"]
+font_size = 25
+
+[node name="MyName" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f2jyw")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -158.0
+offset_top = 160.0
+offset_right = 158.0
+offset_bottom = 233.0
+grow_horizontal = 2
+scale = Vector2(1.00243, 1)
+label_settings = SubResource("LabelSettings_37wuf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -278.0
+offset_right = 320.0
+offset_bottom = -177.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Guess"
+
+[node name="BtnClear" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -154.0
+offset_top = -112.0
+offset_right = 154.0
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Clear"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="BtnClear" to="." method="_on_btn_clear_pressed"]

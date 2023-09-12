@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3 uid="uid://cl4u8r3y2ylw2"]
+
+[ext_resource type="Script" path="res://Panel.gd" id="1_gq4ga"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ger34"]
+font_size = 20
+
+[node name="Panel" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gq4ga")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -86.0
+offset_top = 142.0
+offset_right = 87.0
+offset_bottom = 196.0
+grow_horizontal = 2
+text = "Click The Top One"
+label_settings = SubResource("LabelSettings_ger34")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -373.0
+offset_top = -324.0
+offset_right = 374.0
+offset_bottom = -207.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Please Don't Click Me"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -174.0
+offset_top = -180.0
+offset_right = 174.0
+offset_bottom = -105.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Clear"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

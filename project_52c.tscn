@@ -1,0 +1,94 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsilljm8kwh78"]
+
+[ext_resource type="Script" path="res://Project52C.gd" id="1_75f7d"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4jaxx"]
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_bwc01"]
+font_size = 25
+
+[node name="Project54C" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_75f7d")
+
+[node name="Label1" type="Label" parent="."]
+layout_mode = 0
+offset_top = 10.0
+offset_right = 302.0
+offset_bottom = 93.0
+text = "Radius:"
+label_settings = SubResource("LabelSettings_4jaxx")
+vertical_alignment = 1
+
+[node name="LabelOut" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.0
+offset_top = -114.5
+offset_right = 234.0
+offset_bottom = 114.5
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_bwc01")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextRadius" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 1.0
+offset_right = 458.0
+offset_bottom = 103.0
+
+[node name="ButtonCalculate" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -112.0
+offset_right = 283.0
+grow_vertical = 0
+text = "Calculate"
+
+[node name="ButtonClear" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -141.5
+offset_top = -112.0
+offset_right = 141.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Clear"
+
+[node name="ButtonQuit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -283.0
+offset_top = -112.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Quit"
+
+[connection signal="pressed" from="ButtonCalculate" to="." method="_on_button_calculate_pressed"]
+[connection signal="pressed" from="ButtonClear" to="." method="_on_button_clear_pressed"]
+[connection signal="pressed" from="ButtonQuit" to="." method="_on_button_quit_pressed"]

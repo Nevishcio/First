@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkes4xuwls2yk"]
+
+[ext_resource type="Script" path="res://FavClub.gd" id="1_dgffl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2ym1b"]
+font_size = 25
+
+[node name="FavClub" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dgffl")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -261.0
+offset_top = -274.0
+offset_right = 262.0
+offset_bottom = -185.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Click Click Click"
+
+[node name="BtnClear" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -138.0
+offset_right = 129.0
+offset_bottom = -77.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Clear"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -203.0
+offset_top = 116.0
+offset_right = 204.0
+offset_bottom = 228.0
+grow_horizontal = 2
+label_settings = SubResource("LabelSettings_2ym1b")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="BtnClear" to="." method="_on_btn_clear_pressed"]

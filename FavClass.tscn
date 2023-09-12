@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0xgmobonc4ky"]
+
+[ext_resource type="Script" path="res://FavClass.gd" id="1_0xhcy"]
+
+[sub_resource type="Theme" id="Theme_ptifj"]
+default_base_scale = 2.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_daxru"]
+font_size = 25
+
+[node name="FavClass" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0xhcy")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ptifj")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -252.0
+offset_top = 112.0
+offset_right = 252.0
+offset_bottom = 236.0
+grow_horizontal = 2
+label_settings = SubResource("LabelSettings_daxru")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -232.0
+offset_top = -289.0
+offset_right = 233.0
+offset_bottom = -208.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Clickity Clickity Click the Keys"
+
+[node name="Clear" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -162.0
+offset_top = -151.0
+offset_right = 163.0
+offset_bottom = -86.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Clear"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Clear" to="." method="_on_clear_pressed"]

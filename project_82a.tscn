@@ -1,0 +1,106 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0vec45ctwerh"]
+
+[ext_resource type="Script" path="res://Project82A.gd" id="1_o216c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q0mpu"]
+font_size = 25
+
+[node name="Project82A" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o216c")
+
+[node name="Label1" type="Label" parent="."]
+layout_mode = 1
+offset_right = 328.0
+offset_bottom = 106.0
+text = "Enter Speed Limit:"
+label_settings = SubResource("LabelSettings_q0mpu")
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -172.0
+offset_right = 328.0
+offset_bottom = -66.0
+grow_vertical = 2
+text = "Enter Vehicle Speed:"
+label_settings = SubResource("LabelSettings_q0mpu")
+vertical_alignment = 1
+
+[node name="LabelOutput" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -468.5
+offset_top = -54.0
+offset_right = 468.5
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_q0mpu")
+vertical_alignment = 1
+
+[node name="ButtonCalculate" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -104.0
+offset_right = 304.0
+grow_vertical = 0
+text = "Calculate"
+
+[node name="ButtonQuit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -304.0
+offset_top = -104.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Quit"
+
+[node name="ButtonClear" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -152.0
+offset_top = -104.0
+offset_right = 152.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Clear"
+
+[node name="TextLimit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_right = 672.0
+offset_bottom = 104.0
+
+[node name="TextSpeed" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 152.0
+offset_right = 672.0
+offset_bottom = 256.0
+
+[connection signal="pressed" from="ButtonCalculate" to="." method="_on_button_calculate_pressed"]
+[connection signal="pressed" from="ButtonQuit" to="." method="_on_button_quit_pressed"]
+[connection signal="pressed" from="ButtonClear" to="." method="_on_button_clear_pressed"]
