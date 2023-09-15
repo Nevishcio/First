@@ -10,7 +10,7 @@ func _ready():
 func _process(delta):
 	pass
 
-
+	
 func _on_calculate_pressed():
 	var kilowatts = int($LineEdit1.text)
 	var brate = kilowatts * 0.0475
@@ -25,9 +25,6 @@ func _on_calculate_pressed():
 func _on_clear_pressed():
 	$LabelOutput.text = ""
 	$LineEdit1.text = ""
-	$LineEdit2.text = ""
-	$LineEdit3.text = ""
-	$LineEdit4.text = ""
 
 
 func _on_quit_pressed():
