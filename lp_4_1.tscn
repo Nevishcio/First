@@ -1,0 +1,87 @@
+[gd_scene load_steps=3 format=3 uid="uid://b24jfp6itnxmm"]
+
+[ext_resource type="Script" path="res://LP4-1.gd" id="1_rpas5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_delbd"]
+font_size = 25
+
+[node name="LP4-1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rpas5")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 128.0
+text = "Enter the Number of Copies:"
+label_settings = SubResource("LabelSettings_delbd")
+vertical_alignment = 1
+
+[node name="LabelOut" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -64.0
+offset_right = 256.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_delbd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Calculate" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -128.0
+offset_right = 320.0
+grow_vertical = 0
+text = "Calculate"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -128.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Quit"
+
+[node name="Clear" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -128.0
+offset_right = 160.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Clear"
+
+[node name="TextCopies" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 384.0
+offset_right = 768.0
+offset_bottom = 128.0
+
+[connection signal="pressed" from="Calculate" to="." method="_on_calculate_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Clear" to="." method="_on_clear_pressed"]
