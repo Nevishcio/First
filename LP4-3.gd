@@ -12,22 +12,31 @@ func _process(delta):
 
 
 func _on_calculate_pressed():
-	var copies = int($TextCopies.text)
+	var eggs = int($TextEggs.text)
+	var dozens = floor(eggs / 12)
+	var remainder = eggs % 12
 	var price = 0.0
 	var cost = 0.0
-	if copies > 0 and copies <= 99:
-		price = 0.30
-	elif copies > 99 and copies <= 499:
-		price = 0.28
-	elif copies > 499 and copies <= 749:
-		price = 0.27
-	elif copies > 749 and copies <= 1000:
-		price = 0.26
-	elif copies > 1000:
-		price = 0.25
+	if eggs > 0 and eggs <= 56:
+		price = 0.50
+	elif eggs > 56 and eggs <= 80:
+		price = 0.45
+	elif eggs > 80 and eggs <= 140:
+		price = 0.40
+	elif eggs > 140:
+		price = 0.35
 	else:
 		$LabelOut.text = "Invalid Number of Egg Dozens"
 		return
-	cost = price * copies
-	$LabelOut.text = "Price per Egg Dozen is $" + str(price) + "\nTotal cost is $%.2f" % cost
+	cost = price * eggs
+	$LabelOut.text = "Price per Egg is $%.2f" % dozens + "\nTotal cost is $%.2f" % remainder
 	pass
+
+
+func _on_quit_pressed():
+	get_tree().quit()
+
+
+func _on_clear_pressed():
+	$LabelOut.text = ""
+	$TextEggs.text = ""
