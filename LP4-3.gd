@@ -17,19 +17,19 @@ func _on_calculate_pressed():
 	var remainder = eggs % 12
 	var price = 0.0
 	var cost = 0.0
-	if eggs > 0 and eggs <= 56:
+	if dozens > 0 and dozens <= 4:
 		price = 0.50
-	elif eggs > 56 and eggs <= 80:
+	elif dozens > 4 and dozens <= 6:
 		price = 0.45
-	elif eggs > 80 and eggs <= 140:
+	elif dozens > 6 and dozens <= 11:
 		price = 0.40
-	elif eggs > 140:
+	elif dozens > 11:
 		price = 0.35
 	else:
 		$LabelOut.text = "Invalid Number of Egg Dozens"
 		return
-	cost = price * eggs
-	$LabelOut.text = "Price per Egg is $%.2f" % dozens + "\nTotal cost is $%.2f" % remainder
+	cost = (price * dozens) + (remainder * (price * (1/12)))
+	$LabelOut.text = "Price per Egg is $%.2f" % dozens + "\nTotal cost is $%.2f" + str(cost)
 	pass
 
 

@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3 uid="uid://chxwhtgpn4mv1"]
+
+[ext_resource type="Script" path="res://RandomNumbers.gd" id="1_sj21d"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h2m83"]
+font_size = 25
+
+[node name="RandomNumbers" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sj21d")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -192.0
+offset_right = 320.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_h2m83")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Generate" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -128.0
+offset_right = 320.0
+grow_vertical = 0
+text = "Generate"
+
+[node name="Clear" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -128.0
+offset_right = 160.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Clear"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -128.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Quit"
+
+[connection signal="pressed" from="Generate" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Clear" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Clear" to="." method="_on_clear_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
