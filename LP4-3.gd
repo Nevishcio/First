@@ -23,7 +23,7 @@ func _on_calculate_pressed():
 		price = 0.45
 	elif dozens > 6 and dozens <= 11:
 		price = 0.40
-	elif dozens > 11:
+	elif dozens > 11: 
 		price = 0.35
 	else:
 		$LabelOut.text = "Invalid Number of Eggs"
