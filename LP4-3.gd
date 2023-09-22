@@ -26,10 +26,10 @@ func _on_calculate_pressed():
 	elif dozens > 11:
 		price = 0.35
 	else:
-		$LabelOut.text = "Invalid Number of Egg Dozens"
+		$LabelOut.text = "Invalid Number of Eggs"
 		return
-	cost = (price * dozens) + (remainder * (price * (1/12)))
-	$LabelOut.text = "Price per Egg is $%.2f" % dozens + "\nTotal cost is $%.2f" + str(cost)
+	cost = (price * dozens) + (remainder * (price / 12))
+	$LabelOut.text = "Price per Egg is $%.2f" % price + "\nTotal cost is $%.2f" % cost
 	pass
 
 
