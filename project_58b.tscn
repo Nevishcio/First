@@ -1,0 +1,114 @@
+[gd_scene load_steps=4 format=3 uid="uid://dimjwryu48ef2"]
+
+[ext_resource type="Script" path="res://Project58B.gd" id="1_o7s5s"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n6ndd"]
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_57hs1"]
+font_size = 25
+
+[node name="Project58B" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o7s5s")
+
+[node name="LineEditA" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_right = 512.0
+offset_bottom = 128.0
+
+[node name="LineEditC" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 328.0
+offset_right = 512.0
+offset_bottom = 456.0
+
+[node name="LineEditB" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 168.0
+offset_right = 512.0
+offset_bottom = 296.0
+
+[node name="Calculate" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -128.0
+offset_right = 320.0
+grow_vertical = 0
+text = "Calculate"
+
+[node name="Clear" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -128.0
+offset_right = 160.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Clear"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -128.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Quit"
+
+[node name="LabelOutput" type="Label" parent="."]
+layout_mode = 0
+offset_left = 640.0
+offset_right = 1152.0
+offset_bottom = 320.0
+label_settings = SubResource("LabelSettings_n6ndd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelA" type="Label" parent="."]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 128.0
+text = "Enter A:"
+label_settings = SubResource("LabelSettings_57hs1")
+vertical_alignment = 1
+
+[node name="LabelB" type="Label" parent="."]
+layout_mode = 0
+offset_top = 160.0
+offset_right = 256.0
+offset_bottom = 288.0
+text = "Enter B:"
+label_settings = SubResource("LabelSettings_57hs1")
+vertical_alignment = 1
+
+[node name="LabelC" type="Label" parent="."]
+layout_mode = 0
+offset_top = 328.0
+offset_right = 256.0
+offset_bottom = 456.0
+text = "Enter C:"
+label_settings = SubResource("LabelSettings_57hs1")
+vertical_alignment = 1
+
+[connection signal="pressed" from="Calculate" to="." method="_on_calculate_pressed"]
+[connection signal="pressed" from="Clear" to="." method="_on_clear_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
