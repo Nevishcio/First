@@ -22,6 +22,9 @@ func _on_button_calculate_pressed():
 	var num1 = int($TextNumber1.text)
 	var num2 = int($TextNumber2.text)
 	var Sum = num1 + num2
+	var ProductA = num1 * num2
+	var ProductB = num1 / num2
+	var Average = Sum / 2
 	var Diff = num1 - num2
 	var Abs = abs(Diff)
 	var Max = 1000000000000000
@@ -34,11 +37,7 @@ func _on_button_calculate_pressed():
 		Min = num2
 	else:
 		Min = num1
-	$LabelOut.text = "Sum = " + str(Sum) + \
-	"\nDifference = " + str(Diff) + \
-	"\nAbs. Distance = " + str(Diff) + \
-	"\nMax = " + str(Max) + \
-	"\nMin = " + str(Min)
+	$LabelOut.text = "Sum = " + str(Sum) + "\nDifference = " + str(Diff) + "\nMultiplicitive Product = " + str(ProductA) + "\nDivisionable Product = " +str(ProductB) + "\nAverage = " +str(Average) + "\nAbs. Distance = " + str(Diff) + "\nMax = " + str(Max) + "\nMin = " + str(Min)
 
 func _on_button_quit_pressed():
 	get_tree().quit()
