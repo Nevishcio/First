@@ -19,7 +19,7 @@ func _on_button_pressed():
 	var rnd2 = randf_range (-1000000000000000., 1000000000000000.)
 	var rnd = randf()
 	$Label.text = "Area : %d\nRound: %f\nRound Two: %f" % [area, rnd, rnd2]
-	pass 
+pass 
 
 
 func _on_clear_pressed():
