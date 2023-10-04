@@ -1,0 +1,161 @@
+[gd_scene load_steps=4 format=3 uid="uid://i3ba8ers8128"]
+
+[ext_resource type="Script" path="res://Calculator.gd" id="1_r05d5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pqn8n"]
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_vq6md"]
+font_size = 25
+
+[node name="Calculator" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r05d5")
+
+[node name="Clear" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -128.0
+offset_right = 320.0
+grow_vertical = 0
+text = "Clear"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -128.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Quit"
+
+[node name="Multiply" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -64.0
+offset_bottom = 64.0
+grow_horizontal = 0
+text = "*"
+
+[node name="Divide" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -320.0
+offset_top = 128.0
+offset_right = -256.0
+offset_bottom = 192.0
+grow_horizontal = 0
+text = "/"
+
+[node name="Add" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -320.0
+offset_right = -256.0
+offset_bottom = 64.0
+grow_horizontal = 0
+text = "+"
+
+[node name="Subtract" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -192.0
+offset_right = -128.0
+offset_bottom = 64.0
+grow_horizontal = 0
+text = "-"
+
+[node name="Pow" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -192.0
+offset_top = 128.0
+offset_right = -128.0
+offset_bottom = 192.0
+grow_horizontal = 0
+text = "Pow"
+
+[node name="Button6" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -64.0
+offset_top = 128.0
+offset_bottom = 192.0
+grow_horizontal = 0
+
+[node name="Number1" type="Label" parent="."]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 64.0
+text = "Enter Number 1:"
+label_settings = SubResource("LabelSettings_pqn8n")
+vertical_alignment = 1
+
+[node name="Number2" type="Label" parent="."]
+layout_mode = 0
+offset_top = 128.0
+offset_right = 187.0
+offset_bottom = 192.0
+text = "Enter Number 2:"
+label_settings = SubResource("LabelSettings_pqn8n")
+vertical_alignment = 1
+
+[node name="LabelOutput" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -96.0
+offset_right = 192.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_vq6md")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit1" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 208.0
+offset_right = 448.0
+offset_bottom = 64.0
+
+[node name="LineEdit2" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 128.0
+offset_right = 448.0
+offset_bottom = 192.0
+
+[connection signal="pressed" from="Clear" to="." method="_on_clear_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Multiply" to="." method="_on_multiply_pressed"]
+[connection signal="pressed" from="Divide" to="." method="_on_divide_pressed"]
+[connection signal="pressed" from="Add" to="." method="_on_add_pressed"]
+[connection signal="pressed" from="Subtract" to="." method="_on_subtract_pressed"]
