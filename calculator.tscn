@@ -84,7 +84,7 @@ offset_bottom = 64.0
 grow_horizontal = 0
 text = "-"
 
-[node name="Pow" type="Button" parent="."]
+[node name="Mod" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -94,9 +94,9 @@ offset_top = 128.0
 offset_right = -128.0
 offset_bottom = 192.0
 grow_horizontal = 0
-text = "Pow"
+text = "%"
 
-[node name="Button6" type="Button" parent="."]
+[node name="POW" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -105,6 +105,7 @@ offset_left = -64.0
 offset_top = 128.0
 offset_bottom = 192.0
 grow_horizontal = 0
+text = "POW"
 
 [node name="Number1" type="Label" parent="."]
 layout_mode = 0
@@ -159,3 +160,5 @@ offset_bottom = 192.0
 [connection signal="pressed" from="Divide" to="." method="_on_divide_pressed"]
 [connection signal="pressed" from="Add" to="." method="_on_add_pressed"]
 [connection signal="pressed" from="Subtract" to="." method="_on_subtract_pressed"]
+[connection signal="pressed" from="Mod" to="." method="_on_mod_pressed"]
+[connection signal="pressed" from="POW" to="." method="_on_pow_pressed"]
