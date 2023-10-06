@@ -79,5 +79,5 @@ func _on_pow_pressed():
 
 
 func _on_mod_pressed():
-	getlinjeedit()
+	getlineedit()
 	mod()
