@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://lptmbcae3drh"]
+
+[ext_resource type="Script" path="res://keyboard_control.gd" id="1_bja6e"]
+[ext_resource type="Texture2D" uid="uid://e3mdpse2d2j1" path="res://icon.svg" id="1_ijgvg"]
+[ext_resource type="Script" path="res://GodotGuy.gd" id="1_q4wnb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g8nkp"]
+radius = 32.0
+height = 64.0
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_awyns"]
+a = Vector2(-416, -160)
+b = Vector2(32, -160)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0uux8"]
+
+[node name="KeyboardControl" type="Node2D"]
+script = ExtResource("1_bja6e")
+
+[node name="GodotGuy" type="CharacterBody2D" parent="."]
+position = Vector2(96, 152)
+script = ExtResource("1_q4wnb")
+
+[node name="Sprite2D" type="Sprite2D" parent="GodotGuy"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ijgvg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GodotGuy"]
+shape = SubResource("CapsuleShape2D_g8nkp")
+debug_color = Color(0.211765, 0.815686, 0.290196, 1)
+
+[node name="Camera2D" type="Camera2D" parent="GodotGuy"]
+
+[node name="StartingArea" type="StaticBody2D" parent="."]
+position = Vector2(192, 192)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartingArea"]
+position = Vector2(224, 160)
+shape = SubResource("SegmentShape2D_awyns")
+debug_color = Color(0.211765, 0.815686, 0.290196, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="StartingArea"]
+position = Vector2(32, 0)
+scale = Vector2(448, 8.5)
+texture = SubResource("PlaceholderTexture2D_0uux8")
+
+[node name="World" type="StaticBody2D" parent="."]
+position = Vector2(584, 640)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World"]
+position = Vector2(333.164, -291.231)
+scale = Vector2(0.830696, -0.00724497)
+polygon = PackedVector2Array(-1065.57, 86787, -1787.86, 37097.4, -786.286, -89887.3, -266.24, -85470.4, 234.545, -63386.1, 446.415, -83262, 610.133, -97616.8, 610.133, -98721, 1187.96, -90991.5, 1062.77, -51239.8, 2632.53, -102034, 2950.34, 45931.1, 1120.55, -28051.3, -362.545, -20321.8, -1181.14, -445.902)
+
+[node name="Polygon2D" type="Polygon2D" parent="World/CollisionPolygon2D"]
+polygon = PackedVector2Array(-169.935, -17009.1, -169.935, -17009.1, 234.545, 1762.53, 610.133, 1762.53, 764.221, 8387.81, 1284.27, 21638.4, 1813.94, 12804.7, 2622.9, 115497, 2892.56, 21638.4, 1544.29, -46822.9, 1187.96, -35780.8, 330.85, -37989.2, -449.219, -25842.8)
