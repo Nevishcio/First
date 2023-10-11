@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://lptmbcae3drh"]
+[gd_scene load_steps=12 format=3 uid="uid://lptmbcae3drh"]
 
 [ext_resource type="Script" path="res://keyboard_control.gd" id="1_bja6e"]
 [ext_resource type="Texture2D" uid="uid://e3mdpse2d2j1" path="res://icon.svg" id="1_ijgvg"]
 [ext_resource type="Script" path="res://GodotGuy.gd" id="1_q4wnb"]
 [ext_resource type="Script" path="res://World.gd" id="4_wbofu"]
+[ext_resource type="PackedScene" uid="uid://bljw4bmwo2q5c" path="res://bad_guy(baf).tscn" id="5_ftyki"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g8nkp"]
 radius = 16.0
@@ -19,6 +20,9 @@ b = Vector2(32, -160)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h1gv1"]
 size = Vector2(1.9845, 1.9845)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dijr7"]
+font_size = 100
 
 [node name="KeyboardControl" type="Node2D"]
 script = ExtResource("1_bja6e")
@@ -90,9 +94,25 @@ focus_mode = 0
 script = ExtResource("4_wbofu")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World"]
-polygon = PackedVector2Array(0, -200, 0, 400, 0, 576, 360, 576, 552, 552, 688, 552, 992, 552, 1224, 480, 1408, 360, 40392, 1016, 43656, -5280, 51392, 6320, 2272, 1064, 1688, 1040, 936, 1096, 368, 1128, -280, 1104, -680, 920, -792, 584, -504, -160)
+polygon = PackedVector2Array(44736, -11440, 44304, -9752, -888, -6808, -1104, 752, 2288, 1976, 27720, -432, 40672, -8664, 43216, -8664, 43136, -6656, 43520, -6656, 44736, -11440, 51392, 6320, 34240, 10960, -4112, 5512, -6032, 5000, -7184, 4552, -7248, 3144, -7440, 584, -6624, -7984, -1504, -10672)
 
 [node name="Polygon2D" type="Polygon2D" parent="World/CollisionPolygon2D"]
+
+[node name="BadGuy(Baf)" parent="." instance=ExtResource("5_ftyki")]
+position = Vector2(12488, 2136)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 43056.0
+offset_top = -10104.0
+offset_right = 44217.0
+offset_bottom = -7945.0
+text = "Get Baf Here
+l
+l
+v"
+label_settings = SubResource("LabelSettings_dijr7")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="mouse_entered" from="Interact" to="." method="_on_interact_mouse_entered"]
 [connection signal="button_down" from="Draggable/Button" to="." method="_on_button_button_down"]
