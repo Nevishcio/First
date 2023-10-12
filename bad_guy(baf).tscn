@@ -11,6 +11,7 @@ radius = 32.9848
 position = Vector2(608, 480)
 max_contacts_reported = 1
 contact_monitor = true
+lock_rotation = true
 script = ExtResource("1_a2e2w")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -29,4 +30,7 @@ text = "Baf"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

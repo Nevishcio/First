@@ -1,14 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://lptmbcae3drh"]
+[gd_scene load_steps=10 format=3 uid="uid://lptmbcae3drh"]
 
 [ext_resource type="Script" path="res://keyboard_control.gd" id="1_bja6e"]
-[ext_resource type="Texture2D" uid="uid://e3mdpse2d2j1" path="res://icon.svg" id="1_ijgvg"]
-[ext_resource type="Script" path="res://GodotGuy.gd" id="1_q4wnb"]
+[ext_resource type="PackedScene" uid="uid://xp7w14p3u8xo" path="res://godot_guy.tscn" id="2_xcf4d"]
 [ext_resource type="Script" path="res://World.gd" id="4_wbofu"]
 [ext_resource type="PackedScene" uid="uid://bljw4bmwo2q5c" path="res://bad_guy(baf).tscn" id="5_ftyki"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g8nkp"]
-radius = 16.0
-height = 32.0
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_awyns"]
 a = Vector2(-416, -160)
@@ -27,30 +22,19 @@ font_size = 100
 [node name="KeyboardControl" type="Node2D"]
 script = ExtResource("1_bja6e")
 
-[node name="GodotGuy" type="CharacterBody2D" parent="."]
-position = Vector2(96, 152)
-script = ExtResource("1_q4wnb")
-
-[node name="Sprite2D" type="Sprite2D" parent="GodotGuy"]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_ijgvg")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GodotGuy"]
-shape = SubResource("CapsuleShape2D_g8nkp")
-debug_color = Color(0.211765, 0.815686, 0.290196, 1)
-
-[node name="Camera2D" type="Camera2D" parent="GodotGuy"]
+[node name="GodotGuy" parent="." instance=ExtResource("2_xcf4d")]
+position = Vector2(128, 760)
 
 [node name="StartingArea" type="StaticBody2D" parent="."]
 position = Vector2(192, 192)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StartingArea"]
-position = Vector2(224, 160)
+position = Vector2(224, 760)
 shape = SubResource("SegmentShape2D_awyns")
 debug_color = Color(0.211765, 0.815686, 0.290196, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="StartingArea"]
-position = Vector2(32, 0)
+position = Vector2(32, 603)
 scale = Vector2(448, 8.5)
 texture = SubResource("PlaceholderTexture2D_0uux8")
 
@@ -60,26 +44,25 @@ input_pickable = true
 freeze = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Interact"]
-position = Vector2(3.05176e-05, 0)
+position = Vector2(-1, 600)
 scale = Vector2(128.25, 128.25)
 texture = SubResource("PlaceholderTexture2D_k8y65")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interact"]
-position = Vector2(-1, 0)
+position = Vector2(-1, 600)
 scale = Vector2(64.5, 64.5)
 shape = SubResource("RectangleShape2D_h1gv1")
 
 [node name="Draggable" type="RigidBody2D" parent="."]
-position = Vector2(67, 509)
+position = Vector2(64, 896)
 freeze = true
 
 [node name="Sprite2D2" type="Sprite2D" parent="Draggable"]
-position = Vector2(1.52588e-05, 0)
+position = Vector2(3.8147e-06, 0)
 scale = Vector2(128.25, 128.25)
 texture = SubResource("PlaceholderTexture2D_k8y65")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Draggable"]
-position = Vector2(3.05176e-05, 0)
 scale = Vector2(64.5, 64.5)
 shape = SubResource("RectangleShape2D_h1gv1")
 
@@ -99,7 +82,7 @@ polygon = PackedVector2Array(44736, -11440, 44304, -9752, -888, -6808, -1104, 75
 [node name="Polygon2D" type="Polygon2D" parent="World/CollisionPolygon2D"]
 
 [node name="BadGuy(Baf)" parent="." instance=ExtResource("5_ftyki")]
-position = Vector2(12488, 2136)
+position = Vector2(2048, 1368)
 
 [node name="Label" type="Label" parent="."]
 offset_left = 43056.0

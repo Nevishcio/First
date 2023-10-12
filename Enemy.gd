@@ -16,5 +16,5 @@ func _on_timer_timeout():
 
 func _on_body_entered(body):
 	if body.name == "GodotGuy":
-		body.que_free()
+		body.queue_free()
 		OS.alert("You are dead")

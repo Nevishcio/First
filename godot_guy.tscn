@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://xp7w14p3u8xo"]
+
+[ext_resource type="Script" path="res://GodotGuy.gd" id="1_xguwn"]
+[ext_resource type="Texture2D" uid="uid://e3mdpse2d2j1" path="res://icon.svg" id="2_qd2rb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g8nkp"]
+radius = 16.0
+height = 32.0
+
+[node name="GodotGuy" type="CharacterBody2D"]
+position = Vector2(96, 152)
+script = ExtResource("1_xguwn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_qd2rb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_g8nkp")
+debug_color = Color(0.211765, 0.815686, 0.290196, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
