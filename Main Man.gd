@@ -13,10 +13,3 @@ func _on_timer_timeout():
 	direction *= -1
 
 
-
-func _on_body_entered(body):
-	if body.name == "GodotGuy":
-		body.queue_free()
-		OS.alert("You are dead")
-	if body.name == "MainMan":
-		body.queue_free()

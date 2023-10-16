@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bljw4bmwo2q5c"]
+[gd_scene load_steps=5 format=3 uid="uid://bljw4bmwo2q5c"]
 
 [ext_resource type="Script" path="res://Enemy.gd" id="1_a2e2w"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7l2uh"]
+[ext_resource type="Texture2D" uid="uid://bkhb3qmllemng" path="res://Assets/pixel_enemy1.png" id="2_6bu2w"]
+[ext_resource type="Script" path="res://GodotGuy.gd" id="3_mca7j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_is3vt"]
 radius = 32.9848
@@ -11,26 +11,19 @@ radius = 32.9848
 position = Vector2(608, 480)
 max_contacts_reported = 1
 contact_monitor = true
-lock_rotation = true
 script = ExtResource("1_a2e2w")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(64, 64)
-texture = SubResource("PlaceholderTexture2D_7l2uh")
+position = Vector2(7.62939e-06, -32)
+scale = Vector2(1.02, 1.075)
+texture = ExtResource("2_6bu2w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -40)
 shape = SubResource("CircleShape2D_is3vt")
 
-[node name="Label" type="Label" parent="."]
-offset_left = -32.0
-offset_top = -32.0
-offset_right = 32.0
-offset_bottom = 32.0
-text = "Baf"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Timer" type="Timer" parent="."]
+script = ExtResource("3_mca7j")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
