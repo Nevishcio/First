@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://b3us1r17372b0"]
+[gd_scene load_steps=9 format=3 uid="uid://b3us1r17372b0"]
 
-[ext_resource type="Script" path="res://Objective.gd" id="1_yos6j"]
-[ext_resource type="PackedScene" uid="uid://xp7w14p3u8xo" path="res://godot_guy.tscn" id="2_0wiqb"]
+[ext_resource type="Script" path="res://keyboard_control.gd" id="1_db24w"]
 [ext_resource type="PackedScene" uid="uid://bljw4bmwo2q5c" path="res://bad_guy(baf).tscn" id="3_yyk8c"]
 [ext_resource type="PackedScene" uid="uid://btbuyhcymot1j" path="res://exit.tscn" id="4_5152a"]
 [ext_resource type="Script" path="res://exit.gd" id="5_qae6j"]
@@ -16,7 +15,7 @@ size = Vector2(16, 56)
 size = Vector2(96, 16)
 
 [node name="Objective" type="Node2D"]
-script = ExtResource("1_yos6j")
+script = ExtResource("1_db24w")
 
 [node name="World" type="StaticBody2D" parent="."]
 
@@ -25,9 +24,6 @@ position = Vector2(16, -152)
 polygon = PackedVector2Array(-416, -480, -1736, 320, -64, 936, 496, 368, -72, 400, 120, 32, 464, 104, 776, 320, 928, 584, 1088, 344, 1288, 344, 1192, 536, 1600, 504, 2560, 960, 2600, 1000, 2088, 1456, 1232, 2008, 360, 2008, 360, 1304, 1384, 1256, 2520, 984, 1456, 880, 408, 880, 192, 960, -56, 976, -712, 1904, -888, 1704, -888, 720, -1792, 424, -1920, 2720, 992, 2824, 1296, 2840, 1584, 2784, 2144, 2680, 2768, 2512, 3120, 1864, 3064, 1464, 3336, 1344, 3496, 1000, 3488, 672, 3304, 344, 2864, -64, 2232, -144, 2024, -280, 1760, -400, 1344, -384, 712, -384, 304, -392)
 
 [node name="Polygon2D" type="Polygon2D" parent="World/CollisionPolygon2D"]
-
-[node name="GodotGuy" parent="." instance=ExtResource("2_0wiqb")]
-position = Vector2(120, 208)
 
 [node name="BadGuy(Baf)" parent="." instance=ExtResource("3_yyk8c")]
 position = Vector2(2512, 792)
@@ -238,48 +234,48 @@ position = Vector2(408, 1824)
 script = ExtResource("5_qae6j")
 
 [node name="Draggable" type="RigidBody2D" parent="."]
-position = Vector2(352, 144)
+position = Vector2(320, 144)
 lock_rotation = true
 freeze = true
 
 [node name="Sprite2D2" type="Sprite2D" parent="Draggable"]
-position = Vector2(-128, -24)
+position = Vector2(-3.05176e-05, 24)
 scale = Vector2(96, 16)
 texture = SubResource("PlaceholderTexture2D_420ri")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Draggable"]
-position = Vector2(-88, -60)
+position = Vector2(40, -12)
 scale = Vector2(16, 56)
 texture = SubResource("PlaceholderTexture2D_420ri")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Draggable"]
-position = Vector2(-168, -60)
+position = Vector2(-40, -12)
 scale = Vector2(16, 56)
 texture = SubResource("PlaceholderTexture2D_420ri")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable"]
-position = Vector2(-168, -60)
+position = Vector2(-40, -12)
 shape = SubResource("RectangleShape2D_y1fbl")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Draggable"]
-position = Vector2(-88, -60)
+position = Vector2(40, -12)
 shape = SubResource("RectangleShape2D_y1fbl")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Draggable"]
-position = Vector2(-128, -24)
+position = Vector2(0, 24)
 shape = SubResource("RectangleShape2D_rf0ls")
 
 [node name="Button" type="Button" parent="Draggable"]
-offset_left = -176.0
-offset_top = -88.0
-offset_right = -80.0
-offset_bottom = -16.0
+offset_left = -48.0
+offset_top = -40.0
+offset_right = 48.0
+offset_bottom = 32.0
 focus_mode = 0
 text = "Box
 "
 
 [node name="Main Man" parent="." instance=ExtResource("6_0x1pg")]
-position = Vector2(392, 48)
+position = Vector2(384, 96)
 lock_rotation = false
 
 [connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]

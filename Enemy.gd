@@ -18,5 +18,7 @@ func _on_body_entered(body):
 	if body.name == "GodotGuy":
 		body.queue_free()
 		OS.alert("You are dead")
-	if body.name == "MainMan":
+		get_tree().reload_current_scene
+	if body.is_in_group("Player"):
 		body.queue_free()
+		OS.alert("You Let Him Die")

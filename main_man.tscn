@@ -6,19 +6,21 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_dxbwj"]
 radius = 16.0
 
-[node name="MainMan" type="RigidBody2D"]
+[node name="MainMan" type="RigidBody2D" groups=["Player"]]
 position = Vector2(360, 120)
 lock_rotation = true
 script = ExtResource("1_5xpk6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(32, -16)
 scale = Vector2(0.115942, 0.115108)
 texture = ExtResource("2_604uf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(32, -16)
 shape = SubResource("CircleShape2D_dxbwj")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

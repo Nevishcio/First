@@ -14,3 +14,5 @@ func _process(delta):
 func _on_body_entered(body):
 	if body.name =="GodotGuy":
 		OS.alert("You Did It")
+	if body.is_in_group("Player"):
+		OS.alert("You Had Mercy")
