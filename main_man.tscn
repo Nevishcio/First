@@ -18,9 +18,4 @@ texture = ExtResource("2_604uf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_dxbwj")
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
-
 [node name="Camera2D" type="Camera2D" parent="."]
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

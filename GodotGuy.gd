@@ -24,5 +24,18 @@ func _physics_process(_delta):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+	
+	if Input.is_action_just_pressed("ui_home"):
+		self.scale *= 2
+	if Input.is_action_just_pressed("ui_end"):
+		self.scale /= 2
+	if Input.is_action_just_pressed("ui_page_up"):
+		self.rotation_degrees += 5
+	if Input.is_action_just_pressed("ui_page_down"):
+		self.rotation_degrees -= 5
+	if Input.is_action_just_pressed("ui_text_completion_replace"):
+		self.position.x -= 500
+	if Input.is_action_just_pressed("ui_text_backspace"):
+		self.position.x -= 500
 
 	move_and_slide()
