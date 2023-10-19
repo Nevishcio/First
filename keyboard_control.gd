@@ -19,11 +19,10 @@ func _on_interact_mouse_entered():
 		$Interact.queue_free()
 
 
-func _on_button_button_down():
+func _on_slope_button_down():
 	dragging = true
 	offset = get_global_mouse_position() - $Slope.global_position
-	
 
 
-func _on_button_button_up():
+func _on_slope_button_up():
 	dragging = false

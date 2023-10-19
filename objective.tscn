@@ -13,12 +13,12 @@ script = ExtResource("1_db24w")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World"]
 position = Vector2(16, -152)
-polygon = PackedVector2Array(-416, -480, -1736, 320, -64, 936, 496, 408, -72, 400, 120, 32, 464, 104, 776, 320, 928, 584, 1088, 344, 1288, 344, 1192, 536, 1600, 504, 2560, 960, 2600, 1000, 2088, 1456, 1232, 2008, 360, 2008, 360, 1304, 1384, 1256, 2520, 984, 1456, 880, 408, 880, 192, 960, -56, 976, -712, 1904, -888, 1704, -888, 720, -1792, 424, -1920, 2720, 992, 2824, 1296, 2840, 1584, 2784, 2144, 2680, 2768, 2512, 3120, 1864, 3064, 1464, 3336, 1344, 3496, 1000, 3488, 672, 3304, 344, 2864, -64, 2232, -144, 2024, -280, 1760, -400, 1344, -384, 712, -384, 304, -392)
+polygon = PackedVector2Array(-416, -480, -1736, 320, -64, 936, 496, 472, -72, 400, 120, 32, 464, 104, 776, 320, 928, 584, 1088, 344, 1288, 344, 1192, 536, 1600, 504, 2560, 960, 2600, 1000, 2088, 1456, 1232, 2008, 360, 2008, 360, 1304, 1384, 1256, 2272, 1224, 1552, 1032, 408, 880, 192, 960, -56, 976, -712, 1904, -888, 1704, -888, 720, -1792, 424, -1920, 2720, 992, 2824, 1296, 2840, 1584, 2784, 2144, 2680, 2768, 2512, 3120, 1864, 3064, 1464, 3336, 1344, 3496, 1000, 3488, 672, 3304, 344, 2864, -64, 2232, -144, 2024, -280, 1760, -400, 1344, -384, 712, -384, 304, -392)
 
 [node name="Polygon2D" type="Polygon2D" parent="World/CollisionPolygon2D"]
 
 [node name="BadGuy(Baf)" parent="." instance=ExtResource("3_yyk8c")]
-position = Vector2(2512, 792)
+position = Vector2(304, 656)
 
 [node name="BadGuy(Baf)2" parent="." instance=ExtResource("3_yyk8c")]
 position = Vector2(176, 744)
@@ -216,40 +216,18 @@ position = Vector2(-720, 1392)
 position = Vector2(-576, 1464)
 
 [node name="BadGuy(Baf)3" parent="." instance=ExtResource("3_yyk8c")]
-position = Vector2(696, 584)
+position = Vector2(96, 768)
 
 [node name="BadGuy(Baf)4" parent="." instance=ExtResource("3_yyk8c")]
-position = Vector2(1192, 1824)
+position = Vector2(264, 712)
 
 [node name="Exit" parent="." instance=ExtResource("4_5152a")]
 position = Vector2(408, 1824)
 script = ExtResource("5_qae6j")
+next_level = "TheySeeMeRollin"
 
 [node name="Main Man" parent="." instance=ExtResource("6_0x1pg")]
-position = Vector2(384, 96)
+position = Vector2(-24, 232)
 lock_rotation = false
 
-[node name="Slope" type="RigidBody2D" parent="."]
-position = Vector2(288, 160)
-freeze = true
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Slope"]
-position = Vector2(7.99999, -32)
-scale = Vector2(0.96875, 0.96875)
-polygon = PackedVector2Array(24.7742, 33.0323, 24.7742, 66.0645, 24.7742, 66.0645, -107.355, 66.0645)
-
-[node name="Polygon2D" type="Polygon2D" parent="Slope"]
-position = Vector2(-48, -32)
-color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(80, 32, 80, 64, 80, 64, -48, 64)
-
-[node name="Button" type="Button" parent="Slope"]
-offset_left = -96.0
-offset_right = 32.0
-offset_bottom = 32.0
-focus_mode = 0
-text = "Slope"
-
 [connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]
-[connection signal="button_down" from="Slope/Button" to="." method="_on_button_button_down"]
-[connection signal="button_up" from="Slope/Button" to="." method="_on_button_button_up"]

@@ -10,9 +10,11 @@ func _ready():
 func _process(delta):
 	pass
 
+@export var next_level = ""
 
 func _on_body_entered(body):
 	if body.name =="GodotGuy":
 		OS.alert("You Did It")
 	if body.is_in_group("Player"):
 		OS.alert("You Had Mercy")
+		var lvl = "res://" + next_level + ".tscn"
