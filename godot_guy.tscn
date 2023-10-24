@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://deubwl4f1pc22" path="res://Assets/cannon ball.png" id="2_d1qh1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g8nkp"]
-radius = 16.0
-height = 32.0
+radius = 8.0
+height = 16.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wubde"]
 
@@ -15,9 +15,10 @@ slide_on_ceiling = false
 script = ExtResource("1_xguwn")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.115942, 0.115108)
+scale = Vector2(0.057971, 0.057554)
 texture = ExtResource("2_d1qh1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
