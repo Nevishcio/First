@@ -26,3 +26,25 @@ func _on_slope_button_down():
 
 func _on_slope_button_up():
 	dragging = false
+
+func _input(event):
+	if event is InputEventMouseButton and event.pressed:
+		var npc_ball = preload("res://npc_ball.tscn").instantiate()
+		npc_ball.position = event.position
+		add_child(npc_ball)
+
+
+func _on_gravity_slide_value_changed(value):
+	for child in get_children():
+		if child is RigidBody2D:
+			child.gravity_scale = value
+
+
+func _on_button_pressed():
+	for child in get_children():
+		if child is RigidBody2D:
+			child.apply_central_impulse(Vector2(1, 0) * 500)
+
+
+func _on_button_2_pressed():
+	pass # Replace with function body.
