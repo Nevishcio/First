@@ -1,22 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://cyf7t7ktjn4e4"]
+[gd_scene load_steps=4 format=3 uid="uid://dfsl0lpna6fcu"]
 
-[ext_resource type="Texture2D" uid="uid://deubwl4f1pc22" path="res://Assets/cannon ball.png" id="1_6qkbq"]
+[ext_resource type="Texture2D" uid="uid://b7a5ygeunkrq6" path="res://Assets/PurpleSphere_512x512.png" id="1_pgnwk"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cfcvr"]
-friction = 0.5
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lf1ek"]
 bounce = 1.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_2v7ge"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_jae8r"]
 radius = 8.0
 
 [node name="NPC_Ball" type="RigidBody2D"]
-position = Vector2(224, 752)
-physics_material_override = SubResource("PhysicsMaterial_cfcvr")
+position = Vector2(416, 416)
+physics_material_override = SubResource("PhysicsMaterial_lf1ek")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1.41531e-05, 0)
-scale = Vector2(0.057971, 0.057554)
-texture = ExtResource("1_6qkbq")
+position = Vector2(-4.29153e-06, 1.19209e-06)
+scale = Vector2(0.03125, 0.0312501)
+texture = ExtResource("1_pgnwk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_2v7ge")
+shape = SubResource("CircleShape2D_jae8r")

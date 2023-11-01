@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://c17wqvyalko5o"]
+
+[ext_resource type="PackedScene" uid="uid://dfsl0lpna6fcu" path="res://npc_ball.tscn" id="1_nxk1e"]
+[ext_resource type="Script" path="res://ball_land.gd" id="1_qpyas"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1ye0r"]
+bounce = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_pbtgo"]
+font_size = 25
+
+[node name="Ball Land" type="Node2D"]
+script = ExtResource("1_qpyas")
+
+[node name="NPC_Ball" parent="." instance=ExtResource("1_nxk1e")]
+physics_material_override = SubResource("PhysicsMaterial_1ye0r")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 320.0
+offset_bottom = 128.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 64.0
+text = "Gravity Control"
+label_settings = SubResource("LabelSettings_pbtgo")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GravitySlider" type="HSlider" parent="Panel"]
+layout_mode = 0
+offset_top = 80.0
+offset_right = 320.0
+offset_bottom = 104.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(0, 0, 0, 648, 1152, 648, 1152, 0, 8, 0, 8, 8, 1144, 8, 1144, 640, 8, 640, 8, 0)
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
+polygon = PackedVector2Array(0, 648, 1152, 648, 1152, 0, 8, 0, 8, 8, 1144, 8, 1144, 640, 8, 640, 8, 0, 0, 0)
+
+[connection signal="value_changed" from="Panel/GravitySlider" to="." method="_on_gravity_slider_value_changed"]
