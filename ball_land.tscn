@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://c17wqvyalko5o"]
+[gd_scene load_steps=6 format=3 uid="uid://c17wqvyalko5o"]
 
 [ext_resource type="PackedScene" uid="uid://dfsl0lpna6fcu" path="res://npc_ball.tscn" id="1_nxk1e"]
 [ext_resource type="Script" path="res://ball_land.gd" id="1_qpyas"]
+[ext_resource type="PackedScene" uid="uid://dnfqsqr88tngv" path="res://npc_pink_ball.tscn" id="2_t73e3"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1ye0r"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_v6rbg"]
+friction = 0.5
 bounce = 1.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_pbtgo"]
@@ -12,34 +14,69 @@ font_size = 25
 [node name="Ball Land" type="Node2D"]
 script = ExtResource("1_qpyas")
 
+[node name="NPC_Pink_Ball" parent="." instance=ExtResource("2_t73e3")]
+physics_material_override = SubResource("PhysicsMaterial_v6rbg")
+
 [node name="NPC_Ball" parent="." instance=ExtResource("1_nxk1e")]
-physics_material_override = SubResource("PhysicsMaterial_1ye0r")
 
 [node name="Panel" type="Panel" parent="."]
-offset_right = 320.0
-offset_bottom = 128.0
+offset_left = 56.0
+offset_top = 8.0
+offset_right = 264.0
+offset_bottom = 136.0
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 0
-offset_right = 320.0
+offset_right = 208.0
 offset_bottom = 64.0
-text = "Gravity Control"
+text = "Increase Gravity"
 label_settings = SubResource("LabelSettings_pbtgo")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GravitySlider" type="HSlider" parent="Panel"]
 layout_mode = 0
-offset_top = 80.0
-offset_right = 320.0
-offset_bottom = 104.0
+offset_left = 72.0
+offset_top = 72.0
+offset_right = 136.0
+offset_bottom = 96.0
+
+[node name="Panel2" type="Panel" parent="."]
+offset_left = 56.0
+offset_top = 152.0
+offset_right = 264.0
+offset_bottom = 280.0
+
+[node name="Label" type="Label" parent="Panel2"]
+layout_mode = 0
+offset_right = 208.0
+offset_bottom = 64.0
+text = "Decrease Gravity"
+label_settings = SubResource("LabelSettings_pbtgo")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GravitySlider" type="HSlider" parent="Panel2"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 72.0
+offset_right = 136.0
+offset_bottom = 96.0
+min_value = -200.0
+max_value = 0.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(0, 0, 0, 648, 1152, 648, 1152, 0, 8, 0, 8, 8, 1144, 8, 1144, 640, 8, 640, 8, 0)
+polygon = PackedVector2Array(-64, -64, -64, 704, 1216, 704, 1216, -64, 8, -64, 8, 8, 1144, 8, 1144, 640, 8, 640, 8, 40, -8, 32, -8, -48, 8, -48, 8, -64)
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
-polygon = PackedVector2Array(0, 648, 1152, 648, 1152, 0, 8, 0, 8, 8, 1144, 8, 1144, 640, 8, 640, 8, 0, 0, 0)
+polygon = PackedVector2Array(-64, 704, 1216, 704, 1216, -64, 8, -64, 8, -40, 8, 8, 1144, 8, 1144, 640, 8, 640, 8, 40, -8, 32, -8, 8, -8, -48, 8, -48, 8, -64, -64, -64)
+
+[node name="Panel3" type="Panel" parent="."]
+offset_left = -8.0
+offset_top = -16.0
+offset_right = 8.0
 
 [connection signal="value_changed" from="Panel/GravitySlider" to="." method="_on_gravity_slider_value_changed"]
+[connection signal="value_changed" from="Panel2/GravitySlider" to="." method="_on_gravity_slider_value_changed"]

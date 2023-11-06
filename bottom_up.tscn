@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cj1obum0lhj53"]
+
+[ext_resource type="Script" path="res://ADV3NTUR3H3R0.gd" id="1_gyhiv"]
+[ext_resource type="Texture2D" uid="uid://d3ymgvtaceqn1" path="res://Assets/MagentaSphere_512x512.png" id="2_fyf52"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o7utm"]
+radius = 16.0
+
+[node name="BottomUp" type="Node2D"]
+
+[node name="ADV3NTUR3H3R0" type="CharacterBody2D" parent="."]
+position = Vector2(272, 368)
+script = ExtResource("1_gyhiv")
+
+[node name="Sprite2D" type="Sprite2D" parent="ADV3NTUR3H3R0"]
+scale = Vector2(0.0625, 0.0625001)
+texture = ExtResource("2_fyf52")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ADV3NTUR3H3R0"]
+shape = SubResource("CircleShape2D_o7utm")

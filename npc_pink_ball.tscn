@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnfqsqr88tngv"]
+
+[ext_resource type="Texture2D" uid="uid://d3ymgvtaceqn1" path="res://Assets/MagentaSphere_512x512.png" id="1_542m4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ij3sj"]
+radius = 8.0
+
+[node name="NPC_Pink_Ball" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(440, 416)
+scale = Vector2(0.03125, 0.03125)
+texture = ExtResource("1_542m4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(440, 416)
+shape = SubResource("CircleShape2D_ij3sj")
