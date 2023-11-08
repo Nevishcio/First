@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 130
+const SPEED = 100
 var inertia = Vector2()
 var look_direction = Vector2.DOWN
 var menu_scene = preload("res://gui.tscn")
@@ -42,8 +42,15 @@ func update_animation(direction):
 			a_name += "up"
 		elif direction.y > 0:
 			a_name += "down"
+		$AnimatedSprite2D.play()
 	else:
-		pass
+		if look_direction.x != 0:
+			a_name = "idle_side"
+			$AnimatedSprite2D.flip_h = look_direction.x < 0
+		elif look_direction.y < 0:
+			a_name = "idle_up"
+		elif look_direction.y > 0:
+			a_name = "idle_down"
 	
 	if $AnimatedSprite2D.animation != a_name:
 		$AnimatedSprite2D.animation = a_name
