@@ -1,15 +1,20 @@
 extends CharacterBody2D
 
-
+@export var data = {
+	"max_health": 60.0,
+	"health": 60.0,
+}
 const SPEED = 100
+const MAX_OBTAINABLE_HEALTH = 400.0
 var inertia = Vector2()
 var look_direction = Vector2.DOWN
 var menu_scene = preload("res://gui.tscn")
 var menu_instance = null
 
-
+@onready var HUD = get_tree().get_first_node_in_group("HUD")
 
 func _ready():
+	HUD.show()
 	menu_instance = menu_scene.instantiate()
 	add_child(menu_instance)
 	menu_instance.hide()

@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://0mesu11dyoyk"]
+
+[ext_resource type="Script" path="res://HUD.gd" id="1_1exb0"]
+[ext_resource type="Texture2D" uid="uid://csejj8mdjr7sy" path="res://Assets/objects.png" id="2_dsklw"]
+
+[node name="HUD" type="CanvasLayer" groups=["HUD"]]
+script = ExtResource("1_1exb0")
+
+[node name="Health" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 384.0
+offset_bottom = 128.0
+
+[node name="Life" type="Sprite2D" parent="Health"]
+position = Vector2(32, 32)
+scale = Vector2(4, 4)
+texture = ExtResource("2_dsklw")
+hframes = 33
+vframes = 20
+frame = 8
