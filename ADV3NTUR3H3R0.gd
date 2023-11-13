@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var data = {
 	"max_health": 60.0,
 	"health": 60.0,
+	"money": 0,
 }
 const SPEED = 100
 const MAX_OBTAINABLE_HEALTH = 400.0

@@ -60,3 +60,11 @@ texture = ExtResource("2_dsklw")
 hframes = 22
 vframes = 15
 frame = 268
+
+[node name="Number4" type="Sprite2D" parent="Coin"]
+position = Vector2(160, 56)
+scale = Vector2(2.08333, 2.28571)
+texture = ExtResource("2_dsklw")
+hframes = 22
+vframes = 15
+frame = 268

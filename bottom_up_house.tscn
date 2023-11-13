@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8q225g78m3yh"]
+
+[ext_resource type="PackedScene" uid="uid://0mesu11dyoyk" path="res://HUD.tscn" id="1_xpv8w"]
+[ext_resource type="PackedScene" uid="uid://cksxon7rtnf6s" path="res://H3R0.tscn" id="2_53jvd"]
+
+[node name="BottomUpHouse" type="Node2D"]
+
+[node name="HUD" parent="." instance=ExtResource("1_xpv8w")]
+
+[node name="ADV3NTUR3H3R0" parent="." instance=ExtResource("2_53jvd")]
