@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://cj1obum0lhj53"]
+[gd_scene load_steps=14 format=3 uid="uid://cj1obum0lhj53"]
 
+[ext_resource type="Script" path="res://entities/Coin.gd" id="1_033fd"]
 [ext_resource type="PackedScene" uid="uid://0mesu11dyoyk" path="res://HUD.tscn" id="1_d2mn4"]
 [ext_resource type="PackedScene" uid="uid://cksxon7rtnf6s" path="res://H3R0.tscn" id="2_jcp7d"]
 [ext_resource type="Script" path="res://ChangeLevel.gd" id="4_24a2p"]
 [ext_resource type="Texture2D" uid="uid://idfcxotapk0k" path="res://Assets/Overworld.png" id="4_kouwi"]
+[ext_resource type="PackedScene" uid="uid://q5otcjdr4m5" path="res://entities/Coin.tscn" id="6_77itv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ikmr4"]
 texture = ExtResource("4_kouwi")
@@ -11657,7 +11659,6 @@ texture = ExtResource("4_kouwi")
 3:31/0 = 0
 3:31/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:31/0/physics_layer_0/angular_velocity = 0.0
-3:31/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.0625, -8, 2.0625, -8, 2.0625, 8, -2.0625, 8)
 4:31/0 = 0
 4:31/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:31/0/physics_layer_0/angular_velocity = 0.0
@@ -11900,6 +11901,7 @@ radius = 8.0
 height = 32.0
 
 [node name="BottomUp" type="Node2D"]
+script = ExtResource("1_033fd")
 
 [node name="HUD" parent="." instance=ExtResource("1_d2mn4")]
 
@@ -11909,7 +11911,7 @@ height = 32.0
 z_index = 1
 tile_set = SubResource("TileSet_wswrk")
 format = 2
-layer_0/tile_data = PackedInt32Array(655407, 655360, 1, 589871, 131072, 13, 589870, 131072, 13, 589869, 131072, 13, 589868, 131072, 13, 589867, 131072, 13, 655403, 393216, 1, 720939, 393216, 2, 786475, 393216, 3, 852011, 393216, 4, 852012, 458752, 4, 852013, 524288, 4, 852014, 589824, 4, 852015, 655360, 4, 786479, 655360, 3, 720943, 655360, 2, 786477, 524288, 3, 786476, 458752, 3, 655404, 458752, 1, 720940, 458752, 2, 720942, 589824, 2, 786478, 589824, 3, 655406, 589824, 1, 655405, 524288, 1, 720941, 524288, 2, 655401, 262144, 29, 720937, 262144, 30, 655400, 196608, 29, 720936, 196608, 30, 786472, 196608, 31, 852008, 196608, 32, 589863, 131072, 13, 589864, 131072, 13, 589865, 131072, 13, 589866, 131072, 13, 589872, 131072, 13)
+layer_0/tile_data = PackedInt32Array(655407, 655360, 1, 589871, 131072, 13, 589870, 131072, 13, 589869, 131072, 13, 589868, 131072, 13, 589867, 131072, 13, 655403, 393216, 1, 720939, 393216, 2, 786475, 393216, 3, 852011, 393216, 4, 852012, 458752, 4, 852013, 524288, 4, 852014, 589824, 4, 852015, 655360, 4, 786479, 655360, 3, 720943, 655360, 2, 786477, 524288, 3, 786476, 458752, 3, 655404, 458752, 1, 720940, 458752, 2, 720942, 589824, 2, 786478, 589824, 3, 655406, 589824, 1, 655405, 524288, 1, 720941, 524288, 2, 852008, 196608, 32, 589863, 131072, 13, 589864, 131072, 13, 589865, 131072, 13, 589866, 131072, 13, 589872, 131072, 13)
 
 [node name="TileMap2" type="TileMap" parent="TileMap"]
 z_index = -1
@@ -11931,5 +11933,14 @@ next_level = "bottom_up_house"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HouseDoor"]
 z_index = 1
 shape = SubResource("CapsuleShape2D_51g0b")
+
+[node name="Coin" parent="." instance=ExtResource("6_77itv")]
+position = Vector2(24, 328)
+
+[node name="Coin2" parent="." instance=ExtResource("6_77itv")]
+position = Vector2(224, 496)
+
+[node name="Coin3" parent="." instance=ExtResource("6_77itv")]
+position = Vector2(477.215, 352.514)
 
 [connection signal="body_entered" from="HouseDoor" to="HouseDoor" method="_on_body_entered"]
