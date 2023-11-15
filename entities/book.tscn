@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://doi1rk3iwaxkd"]
+
+[ext_resource type="Script" path="res://entities/Book.gd" id="1_8uclb"]
+[ext_resource type="Texture2D" uid="uid://csejj8mdjr7sy" path="res://Assets/objects.png" id="2_my8dj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_usr0w"]
+atlas = ExtResource("2_my8dj")
+region = Rect2(240, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xwg40"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_usr0w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_td850"]
+size = Vector2(24, 24)
+
+[node name="book" type="Node2D"]
+z_index = 6
+script = ExtResource("1_8uclb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 6
+position = Vector2(56, 40)
+sprite_frames = SubResource("SpriteFrames_xwg40")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+z_index = 6
+position = Vector2(56, 40)
+shape = SubResource("RectangleShape2D_td850")

@@ -4,6 +4,7 @@ extends CharacterBody2D
 	"max_health": 60.0,
 	"health": 60.0,
 	"money": 0,
+	"book": 0,
 }
 const SPEED = 100
 const MAX_OBTAINABLE_HEALTH = 400.0
@@ -16,6 +17,13 @@ var menu_instance = null
 
 func pickup_money(value):
 	data.money += value
+
+func pickup_heart(value):
+	data.health += value
+	data.health = clamp(data.health, 0, data.max_health)
+
+func pickup_book(value):
+	data.book += value
 
 func _ready():
 	HUD.show()

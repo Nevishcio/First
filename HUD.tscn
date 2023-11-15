@@ -37,7 +37,7 @@ hframes = 8
 vframes = 7
 frame = 49
 
-[node name="Number2" type="Sprite2D" parent="Coin"]
+[node name="Number1" type="Sprite2D" parent="Coin"]
 position = Vector2(88, 56)
 scale = Vector2(2.08333, 2.28571)
 texture = ExtResource("2_dsklw")
@@ -45,17 +45,17 @@ hframes = 22
 vframes = 15
 frame = 268
 
-[node name="Number3" type="Sprite2D" parent="Coin"]
+[node name="Number2" type="Sprite2D" parent="Coin"]
 position = Vector2(112, 56)
-scale = Vector2(2.16667, 2.28571)
+scale = Vector2(2.08333, 2.28571)
 texture = ExtResource("2_dsklw")
 hframes = 22
 vframes = 15
 frame = 268
 
-[node name="Number1" type="Sprite2D" parent="Coin"]
+[node name="Number3" type="Sprite2D" parent="Coin"]
 position = Vector2(136, 56)
-scale = Vector2(2.08333, 2.28571)
+scale = Vector2(2.16667, 2.28571)
 texture = ExtResource("2_dsklw")
 hframes = 22
 vframes = 15

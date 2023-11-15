@@ -7,9 +7,8 @@ var flicker_interval = 0.1
 var current_time = 0.0
 var time_to_despawn = 50.0
 
-@onready var animator = $AnimatedSprite2D
 
-func _ready(): pass
+func _ready(): $AnimatedSprite2D.play()
 
 func remove():
 	value = 0
@@ -24,7 +23,7 @@ func _init(default_value: int = 1):
 
 func _process(_delta):
 	for player in get_tree().get_nodes_in_group("Player"):
-		if $Area2D.overlap_body(player):
+		if $Area2D.overlaps_body(player):
 			interact(player)
 	current_time += _delta
 	if current_time >= flicker_start_time and current_time <= time_to_despawn:
