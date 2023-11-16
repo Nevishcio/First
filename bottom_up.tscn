@@ -1,13 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://cj1obum0lhj53"]
+[gd_scene load_steps=13 format=3 uid="uid://cj1obum0lhj53"]
 
 [ext_resource type="PackedScene" uid="uid://0mesu11dyoyk" path="res://HUD.tscn" id="1_d2mn4"]
 [ext_resource type="Script" path="res://bottom_up.gd" id="1_thmka"]
-[ext_resource type="PackedScene" uid="uid://doi1rk3iwaxkd" path="res://entities/Book.tscn" id="2_5u50w"]
 [ext_resource type="PackedScene" uid="uid://cksxon7rtnf6s" path="res://H3R0.tscn" id="2_jcp7d"]
 [ext_resource type="Script" path="res://ChangeLevel.gd" id="4_24a2p"]
 [ext_resource type="Texture2D" uid="uid://idfcxotapk0k" path="res://Assets/Overworld.png" id="4_kouwi"]
-[ext_resource type="PackedScene" uid="uid://q5otcjdr4m5" path="res://entities/Coin.tscn" id="6_77itv"]
-[ext_resource type="PackedScene" uid="uid://3nly0skeud6g" path="res://entities/mini_heart.tscn" id="7_cxsb4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ikmr4"]
 texture = ExtResource("4_kouwi")
@@ -11905,12 +11902,10 @@ height = 32.0
 [node name="BottomUp" type="Node2D"]
 script = ExtResource("1_thmka")
 
-[node name="Book" parent="." instance=ExtResource("2_5u50w")]
-position = Vector2(312, 536)
-
 [node name="HUD" parent="." instance=ExtResource("1_d2mn4")]
 
 [node name="ADV3NTUR3H3R0" parent="." instance=ExtResource("2_jcp7d")]
+position = Vector2(640, 248)
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = 1
@@ -11938,12 +11933,5 @@ next_level = "bottom_up_house"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HouseDoor"]
 z_index = 1
 shape = SubResource("CapsuleShape2D_51g0b")
-
-[node name="Coin" parent="." instance=ExtResource("6_77itv")]
-position = Vector2(264, 568)
-
-[node name="mini_heart" parent="." instance=ExtResource("7_cxsb4")]
-z_index = 14
-position = Vector2(376, 552)
 
 [connection signal="body_entered" from="HouseDoor" to="HouseDoor" method="_on_body_entered"]
