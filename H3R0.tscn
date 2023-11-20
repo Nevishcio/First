@@ -142,9 +142,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0gepi"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yfhvt"]
 radius = 8.0
-height = 23.0
+height = 25.0
 
 [node name="ADV3NTUR3H3R0" type="CharacterBody2D" groups=["Player"]]
 z_index = 2
@@ -153,7 +153,7 @@ script = ExtResource("1_e8f0o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 2
-position = Vector2(-3.8147e-06, 12)
+position = Vector2(-3.8147e-06, 16)
 scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("SpriteFrames_uilpb")
 animation = &"idle_down"
@@ -168,7 +168,7 @@ texture = ExtResource("3_1xh0x")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 2
 position = Vector2(0, 16)
-shape = SubResource("CapsuleShape2D_0gepi")
+shape = SubResource("CapsuleShape2D_yfhvt")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
