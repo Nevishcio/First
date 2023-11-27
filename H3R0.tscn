@@ -201,7 +201,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_i2bwr")
 }],
 "loop": true,
-"name": &"attack_left",
+"name": &"attack_side",
 "speed": 6.0
 }, {
 "frames": [{
@@ -358,7 +358,7 @@ z_index = 2
 position = Vector2(-3.8147e-06, 16)
 scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("SpriteFrames_uilpb")
-animation = &"attack_left"
+animation = &"idle_down"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false

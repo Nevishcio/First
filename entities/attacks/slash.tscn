@@ -3,14 +3,17 @@
 [ext_resource type="Script" path="res://entities/attacks/slash.gd" id="1_7bjyl"]
 [ext_resource type="Texture2D" uid="uid://c8wwnx78fonjb" path="res://Assets/Slash.png" id="1_dllbi"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_7dxop"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_8bylb"]
 radius = 8.0
 
-[node name="slash" type="Node2D"]
+[node name="Node2D" type="Area2D"]
+position = Vector2(0, -16)
 script = ExtResource("1_7bjyl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 16)
 texture = ExtResource("1_dllbi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_7dxop")
+position = Vector2(0, 16)
+shape = SubResource("CircleShape2D_8bylb")
