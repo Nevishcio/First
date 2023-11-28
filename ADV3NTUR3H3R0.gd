@@ -81,6 +81,10 @@ func _ready():
 		get_tree().paused = true
 
 func _physics_process(_delta):
+	animation_lock = max(animation_lock-_delta, 0.0)
+	if data.state != STATES.CHARGING:
+			data.state = STATES.IDLE
+	damage_lock = max(damage_lock-_delta, 0.0)
 	if animation_lock == 0.0 and data.state != STATES.DEAD:
 		var direction = Vector2(
 			Input.get_axis("ui_left", "ui_right"),
@@ -99,12 +103,18 @@ func _physics_process(_delta):
 	if data.state != STATES.DEAD:
 		if Input.is_action_just_pressed("ui_accept"):
 			attack()
-		animation_lock = max(animation_lock-_delta, 0.0)
-	
-	if animation_lock == 0.0 and data.state != STATES.DEAD:
-		
-		if data.state != STATES.CHARGING:
+			charge_start_time = Time.get_time_dict_from_system().second
+			data.state = STATES.CHARGING
+	if Input.is_action_just_released("ui_accept"):
+		var charge_duration = Time.get_time_dict_from_system().second - charge_start_time
+		if charge_duration >= charge_time and data.state == STATES.CHARGING:
+			charged_attack()
+		else:
 			data.state = STATES.IDLE
+	if Input.is_action_just_pressed("ui_cancel"):
+		menu_instance.show()
+		get_tree().paused = true
+
 
 
 
