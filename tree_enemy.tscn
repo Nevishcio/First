@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://du4pxo2yvuvpl"]
+
+[ext_resource type="Script" path="res://TreeEnemy.gd" id="1_yhsrm"]
+[ext_resource type="Texture2D" uid="uid://dkej7i1byq12b" path="res://Assets/log.png" id="2_e4mnp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p2sgr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_om016"]
+size = Vector2(20, 32)
+
+[node name="TreeEnemy" type="Area2D"]
+script = ExtResource("1_yhsrm")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+modulate = Color(0.796078, 0.0862745, 0.458824, 1)
+self_modulate = Color(0.694118, 0.172549, 0.356863, 1)
+position = Vector2(88, 88)
+shape = SubResource("CapsuleShape2D_p2sgr")
+debug_color = Color(0.843137, 0.294118, 0.615686, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(88, 88)
+texture = ExtResource("2_e4mnp")
+hframes = 6
+vframes = 4
+frame = 20
+
+[node name="AttackBox" type="CollisionShape2D" parent="."]
+position = Vector2(88, 88)
+shape = SubResource("RectangleShape2D_om016")
+
+[node name="RayCast1" type="RayCast2D" parent="."]
+position = Vector2(88, 88)
+target_position = Vector2(-48, 0)
+
+[node name="RayCast2" type="RayCast2D" parent="."]
+position = Vector2(88, 88)
+target_position = Vector2(-40, -24)
+
+[node name="RayCast3" type="RayCast2D" parent="."]
+position = Vector2(88, 88)
+target_position = Vector2(-40, 24)
