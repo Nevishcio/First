@@ -71,6 +71,9 @@ func pickup_heart(value):
 func pickup_book(value):
 	data.book += value
 
+func take_damaage(dmg):
+	pass
+
 func _ready():
 	HUD.show()
 	menu_instance = menu_scene.instantiate()

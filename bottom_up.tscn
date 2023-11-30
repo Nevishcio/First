@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://cj1obum0lhj53"]
+[gd_scene load_steps=14 format=3 uid="uid://cj1obum0lhj53"]
 
 [ext_resource type="PackedScene" uid="uid://0mesu11dyoyk" path="res://HUD.tscn" id="1_d2mn4"]
 [ext_resource type="Script" path="res://bottom_up.gd" id="1_thmka"]
 [ext_resource type="PackedScene" uid="uid://cksxon7rtnf6s" path="res://H3R0.tscn" id="2_jcp7d"]
 [ext_resource type="Script" path="res://ChangeLevel.gd" id="4_24a2p"]
 [ext_resource type="Texture2D" uid="uid://idfcxotapk0k" path="res://Assets/Overworld.png" id="4_kouwi"]
+[ext_resource type="PackedScene" uid="uid://du4pxo2yvuvpl" path="res://tree_enemy.tscn" id="6_rxcka"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ikmr4"]
 texture = ExtResource("4_kouwi")
@@ -11933,5 +11934,8 @@ next_level = "bottom_up_house"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HouseDoor"]
 z_index = 1
 shape = SubResource("CapsuleShape2D_51g0b")
+
+[node name="TreeEnemy" parent="." instance=ExtResource("6_rxcka")]
+position = Vector2(120, 176)
 
 [connection signal="body_entered" from="HouseDoor" to="HouseDoor" method="_on_body_entered"]

@@ -9,7 +9,16 @@ var AI_STATE = STATES.IDLE
 enum STATES {IDLE = 0, UP, DOWN, LEFT, RIGHT,
 			UP_L, UP_R, DOWN_L, DOWN_R, DAMAGED}
 var state_directions = [
-	
+	Vector2.ZERO,
+	Vector2.UP,
+	Vector2.DOWN,
+	Vector2.LEFT,
+	Vector2.RIGHT,
+	Vector2(-1, -1).normalized(),
+	Vector2(1, -1).normalized(),
+	Vector2(-1, 1).normalized(),
+	Vector2(1, 1).normalized(),
+	Vector2.ZERO
 ]
 
 signal recovered
@@ -39,6 +48,9 @@ func turn_toward_player_location(location: Vector2):
 			closest_state = STATES.values()[i]
 	AI_STATE = closest_state
 
+func take_damaage(dmg, attacker = null):
+	pass
+
 func _physics_process(_delta):
 	animation_lock = max(animation_lock-_delta, 0.0)
 	damage_lock = max(damage_lock-_delta, 0.0)
@@ -63,3 +75,16 @@ func _physics_process(_delta):
 					   (raycast1.is_colliding() and raycast1.gel_collider() == player) or \
 					   (raycast1.is_colliding() and raycast1.gel_collider() == player):
 						turn_toward_player_location(player.global_position)
+	ai_timer = clamp(ai_timer - _delta, 0.0, ai_timer_max)
+	if ai_timer == 0.0:
+		if AI_STATE == STATES.IDLE:
+			var _random_move = randi() % 4
+			AI_STATE == STATES.values()[_random_move+1]
+		else:
+			AI_STATE == STATES.IDLE
+		ai_timer = ai_timer_max
+	var direction = state_directions[int(AI_STATE)]
+	velocity = direction * SPEED
+	velocity += inertia
+	move_and_slide()
+	inertia = inertia.move_toward(Vector2(), _delta * 1000)
