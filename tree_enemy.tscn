@@ -11,7 +11,9 @@ size = Vector2(20, 32)
 [node name="TreeEnemy" type="CharacterBody2D"]
 script = ExtResource("1_yhsrm")
 
-[node name="AttackBox" type="CollisionShape2D" parent="."]
+[node name="AttackBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2" type="CollisionShape2D" parent="AttackBox"]
 modulate = Color(0.796078, 0.0862745, 0.458824, 1)
 self_modulate = Color(0.694118, 0.172549, 0.356863, 1)
 position = Vector2(88, 88)
@@ -29,14 +31,14 @@ frame = 20
 position = Vector2(88, 88)
 shape = SubResource("RectangleShape2D_om016")
 
-[node name="RayCast1" type="RayCast2D" parent="."]
+[node name="RayCast2DM" type="RayCast2D" parent="."]
 position = Vector2(88, 88)
 target_position = Vector2(-48, 0)
 
-[node name="RayCast2" type="RayCast2D" parent="."]
+[node name="RayCast2DL" type="RayCast2D" parent="."]
 position = Vector2(88, 88)
-target_position = Vector2(-40, -24)
+target_position = Vector2(-32, -24)
 
-[node name="RayCast3" type="RayCast2D" parent="."]
+[node name="RayCast2DR" type="RayCast2D" parent="."]
 position = Vector2(88, 88)
-target_position = Vector2(-40, 24)
+target_position = Vector2(-32, 24)
