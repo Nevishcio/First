@@ -36,8 +36,6 @@ func get_direction_name():
 
 func attack():
 	data.state = STATES.ATTACKING
-	if get_direction_name() == "left":
-		$AnimatedSprite2D.flip_h = 0
 	$AnimatedSprite2D.play("attack_" + get_direction_name())
 	attack_direction = look_direction
 	var slash = slash_scene.instantiate()
@@ -152,7 +150,7 @@ func update_animation(direction):
 			look_direction = direction
 			a_name = "walk_"
 			if direction.x != 0:
-				a_name += "side"
+				a_name += "left"
 				$AnimatedSprite2D.flip_h = direction.x < 0
 			elif direction.y < 0:
 				a_name += "up"
@@ -161,7 +159,7 @@ func update_animation(direction):
 			$AnimatedSprite2D.play()
 		else:
 			if look_direction.x != 0:
-				a_name = "idle_side"
+				a_name = "idle_left"
 				$AnimatedSprite2D.flip_h = look_direction.x < 0
 			elif look_direction.y < 0:
 				a_name = "idle_up"

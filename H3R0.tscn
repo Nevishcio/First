@@ -204,6 +204,11 @@ animations = [{
 "name": &"attack_left",
 "speed": 6.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"attack_right",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 3.0,
 "texture": SubResource("AtlasTexture_054gs")
@@ -281,7 +286,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_qty53")
 }],
 "loop": true,
-"name": &"idle_side",
+"name": &"idle_left",
 "speed": 5.0
 }, {
 "frames": [{
@@ -323,7 +328,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_bx55l")
 }],
 "loop": true,
-"name": &"walk_side",
+"name": &"walk_left",
 "speed": 5.0
 }, {
 "frames": [{
@@ -358,7 +363,7 @@ z_index = 2
 position = Vector2(-3.8147e-06, 16)
 scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("SpriteFrames_uilpb")
-animation = &"attack_left"
+animation = &"walk_left"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
