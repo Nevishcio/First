@@ -25,9 +25,11 @@ var charge_start_time = 0.0
 
 var slash_scene = preload("res://entities/attacks/slash.tscn")
 var menu_scene = preload("res://HUD.tscn")
+var attack_sound = preload("res://Assets/sounds/slash.wav")
 var menu_instance = null
 
 @onready var p_HUD = get_tree().get_first_node_in_group("HUD")
+@onready var aud_player = $AudioStreamPlayer2D
 
 func get_direction_name():
 	return ["right", "down", "left", "up"][
@@ -42,6 +44,8 @@ func attack():
 	slash.position = attack_direction * 20.0
 	slash.rotation = Vector2().angle_to_point(-attack_direction)
 	add_child(slash)
+	aud_player.stream = attack_sound
+	aud_player.play()
 	animation_lock = 0.2
 
 func charged_attack():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cj1obum0lhj53"]
+[gd_scene load_steps=15 format=3 uid="uid://cj1obum0lhj53"]
 
 [ext_resource type="PackedScene" uid="uid://0mesu11dyoyk" path="res://HUD.tscn" id="1_d2mn4"]
 [ext_resource type="Script" path="res://bottom_up.gd" id="1_thmka"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://ChangeLevel.gd" id="4_24a2p"]
 [ext_resource type="Texture2D" uid="uid://idfcxotapk0k" path="res://Assets/Overworld.png" id="4_kouwi"]
 [ext_resource type="PackedScene" uid="uid://du4pxo2yvuvpl" path="res://tree_enemy.tscn" id="6_rxcka"]
+[ext_resource type="AudioStream" uid="uid://664krvvoshk3" path="res://Assets/sounds/overworld.mp3" id="7_ty27i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ikmr4"]
 texture = ExtResource("4_kouwi")
@@ -11937,5 +11938,10 @@ shape = SubResource("CapsuleShape2D_51g0b")
 
 [node name="TreeEnemy" parent="." instance=ExtResource("6_rxcka")]
 position = Vector2(120, 176)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ty27i")
+volume_db = -8.0
+autoplay = true
 
 [connection signal="body_entered" from="HouseDoor" to="HouseDoor" method="_on_body_entered"]
