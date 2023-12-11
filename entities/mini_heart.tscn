@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://dns3m73nrsfqq"]
+
+[ext_resource type="Script" path="res://entities/mini_heart.gd" id="1_xnsxc"]
+[ext_resource type="Texture2D" uid="uid://csejj8mdjr7sy" path="res://Assets/objects.png" id="2_djj5r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3kjy"]
+atlas = ExtResource("2_djj5r")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tb1e"]
+atlas = ExtResource("2_djj5r")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bf83j"]
+atlas = ExtResource("2_djj5r")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cny3h"]
+atlas = ExtResource("2_djj5r")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ho8o3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3kjy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tb1e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bf83j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cny3h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="mini_heart" type="Node2D"]
+script = ExtResource("1_xnsxc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ho8o3")
+frame_progress = 0.907677

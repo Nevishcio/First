@@ -1,7 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://0mesu11dyoyk"]
+[gd_scene load_steps=5 format=3 uid="uid://0mesu11dyoyk"]
 
 [ext_resource type="Script" path="res://HUD.gd" id="1_1exb0"]
 [ext_resource type="Texture2D" uid="uid://csejj8mdjr7sy" path="res://Assets/objects.png" id="2_dsklw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6k45"]
+atlas = ExtResource("2_dsklw")
+region = Rect2(64, 288, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_br1nj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6k45")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="HUD" type="CanvasLayer" groups=["HUD"]]
 script = ExtResource("1_1exb0")
@@ -29,16 +44,13 @@ offset_top = -88.0
 offset_right = 184.0
 grow_vertical = 0
 
-[node name="Texture" type="Sprite2D" parent="Coin"]
-position = Vector2(96, 32)
-scale = Vector2(2.96212, 2.81528)
-texture = ExtResource("2_dsklw")
-hframes = 8
-vframes = 7
-frame = 49
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin"]
+position = Vector2(116, 32)
+scale = Vector2(3.625, 3.5)
+sprite_frames = SubResource("SpriteFrames_br1nj")
 
 [node name="Number1" type="Sprite2D" parent="Coin"]
-position = Vector2(88, 56)
+position = Vector2(112, 32)
 scale = Vector2(2.08333, 2.28571)
 texture = ExtResource("2_dsklw")
 hframes = 22
@@ -46,7 +58,7 @@ vframes = 15
 frame = 268
 
 [node name="Number2" type="Sprite2D" parent="Coin"]
-position = Vector2(112, 56)
+position = Vector2(136, 32)
 scale = Vector2(2.08333, 2.28571)
 texture = ExtResource("2_dsklw")
 hframes = 22
@@ -54,7 +66,7 @@ vframes = 15
 frame = 268
 
 [node name="Number3" type="Sprite2D" parent="Coin"]
-position = Vector2(136, 56)
+position = Vector2(160, 32)
 scale = Vector2(2.16667, 2.28571)
 texture = ExtResource("2_dsklw")
 hframes = 22
@@ -62,7 +74,7 @@ vframes = 15
 frame = 268
 
 [node name="Number4" type="Sprite2D" parent="Coin"]
-position = Vector2(160, 56)
+position = Vector2(184, 32)
 scale = Vector2(2.08333, 2.28571)
 texture = ExtResource("2_dsklw")
 hframes = 22

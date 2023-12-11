@@ -26,6 +26,7 @@ var charge_start_time = 0.0
 var slash_scene = preload("res://entities/attacks/slash.tscn")
 var menu_scene = preload("res://HUD.tscn")
 var attack_sound = preload("res://Assets/sounds/slash.wav")
+var damage_shader = preload("res://Assets/shader/take_damage.tres")
 var menu_instance = null
 
 @onready var p_HUD = get_tree().get_first_node_in_group("HUD")
@@ -93,6 +94,8 @@ func take_damage(dmg):
 		damage_lock = 0.5
 		animation_lock = dmg * 0.005
 		# TODO: damage shader
+		$AnimatedSprite2D.material = damage_shader.duplicate()
+		$AnimatedSprite2D.material.set_shader_parametet("intensity", 0,5)
 		if data.health <= 0:
 			data.state = STATES.DEAD
 			# TODO: play death animation & sound
@@ -104,12 +107,15 @@ func take_damage(dmg):
 	pass
 
 
-func _physics_process(delta):
-	animation_lock = max(animation_lock-delta, 0.0)
-	damage_lock = max(damage_lock-delta, 0.0)
+func _physics_process(_delta):
+	animation_lock = max(animation_lock-_delta, 0.0)
+	damage_lock = max(damage_lock-_delta, 0.0)
 	
 	if animation_lock == 0.0 and data.state != STATES.DEAD:
 		# TODO: damage and charging
+		if data.state == STATES.DAMAGED and max(damage_lock-_delta, 0.0):
+			$AnimatedSprite2D.material = null
+		
 		if data.state != STATES.CHARGING:
 			data.state = STATES.IDLE
 		
@@ -123,10 +129,9 @@ func _physics_process(delta):
 			velocity = direction * SPEED
 		else:
 			velocity = velocity.move_toward(Vector2(), SPEED)
-		
 		velocity += inertia
 		move_and_slide()
-		inertia = inertia.move_toward(Vector2(), delta * 1000.0)
+		inertia = inertia.move_toward(Vector2(), _delta * 1000.0)
 	
 	if data.state != STATES.DEAD:
 		if Input.is_action_just_pressed("ui_accept"):
