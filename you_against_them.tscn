@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://doeoyer7efyd4"]
+
+[ext_resource type="PackedScene" uid="uid://o4pyjcuuhjom" path="res://bob.tscn" id="1_ew1hp"]
+[ext_resource type="PackedScene" uid="uid://0mesu11dyoyk" path="res://HUD.tscn" id="2_vrp70"]
+
+[node name="You Against Them" type="Node2D"]
+
+[node name="BOB" parent="." instance=ExtResource("1_ew1hp")]
+
+[node name="HUD" parent="." instance=ExtResource("2_vrp70")]

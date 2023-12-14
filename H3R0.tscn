@@ -375,7 +375,7 @@ z_index = 2
 position = Vector2(-3.8147e-06, 16)
 scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("SpriteFrames_uilpb")
-animation = &"attack_right"
+animation = &"idle_left"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
